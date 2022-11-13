@@ -38,9 +38,8 @@ def Huawei(tar):
                 code = res.text
                 m = code.replace('while(1); /*', '')
                 c = m.replace('*/', '')
-                f = open('data.json', 'w+')
-                f.write(c)
-                f.close()
+                with open('data.json', 'w+') as f:
+                    f.write(c)
                 with open('data.json', 'r+') as lst:
                     serialnumber = json.load(lst)
                     a = [serialnumber['SerialNumber'][12], serialnumber['SerialNumber'][13],
